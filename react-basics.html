@@ -12,19 +12,31 @@
     <script src="https://unpkg.com/supersimpledev/babel.js"></script>
 
     <script type="text/babel">
+        function LoginForm() {
+            return(
+                <>
+                <div>
+                    <input placeholder="Email" />
+                </div>
+                <div>
+                    <input placeholder="Password" />
+                </div>
+                <button>Login</button>
+                <button>Sign up</button>
+                </>
+            );
+        }
+
+        function App() {
+            return (
+            <>
+                <p>"Hello, welcome to my website"</p>
+                <LoginForm/>
+            </>
+            );
+        }
       const container = document.querySelector(".js-container");
-      const button = <button>Good job!</button>;
-      const name = "Evan"
-      const shopping = (
-        <div>
-            <p>Cotton socks</p>
-            <p>Price: $10</p>
-            <button>Add to cart</button>
-        </div>
-      )
-      const productCost = 10 + 2*8
-      console.log(productCost)
-      ReactDOM.createRoot(container).render(<p>Product cost: $ {productCost}</p>);
+      ReactDOM.createRoot(container).render(<App />);
     </script>
   </body>
 </html>
