@@ -25,18 +25,6 @@
       }
 
       function ChatMessage({ message, sender }) {
-        // const message = props.message
-        // const sender = props.sender
-
-        // if (sender === "robot") {
-        //   return (
-        //     <div>
-        //       <img src="robot.png" width="50"/>
-        //       {message}
-        //     </div>
-        // );
-        // }
-
         return (
           <div>
             {sender === "robot" && (
@@ -50,26 +38,46 @@
         );
       }
 
+
+      function ChatMessages() {
+            const chatMessages = [{
+                message: 'hello chatbot',
+                sender: 'user',
+                id: 'id1'
+            }, {
+                message: 'Hello! How can I help you?',
+                sender: 'robot',
+                id: 'id2'
+            }, {
+                message: 'can you get me todays date?',
+                sender: 'user',
+                id: 'id3'
+            }, {
+                message: 'Today is August 23',
+                sender: 'user',
+                id: 'id4'
+            }];
+
+            return (
+              <>
+                {chatMessages.map((chatMessage) => {
+                  return (
+                      <ChatMessage 
+                      message={chatMessage.message}
+                      sender={chatMessage.sender}
+                      key={chatMessage.id}
+                      />
+                  );
+                })}
+              </>
+            );
+        }
+
       function App () {
         return (
           <>
             <ChatInput />
-            <ChatMessage 
-              message="Hello Chatbot" 
-              sender="user" 
-            />
-            <ChatMessage 
-              message="Hello! How can I help you?" 
-              sender="robot" 
-            />
-            <ChatMessage 
-              message="Can you get me today's date?" 
-              sender="user" 
-            />
-            <ChatMessage 
-              message="Today is Aug 19th 2025" 
-              sender="robot" 
-            />
+            <ChatMessages />
           </>
         );
       }
